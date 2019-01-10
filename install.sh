@@ -10,9 +10,9 @@ while [[ "$1" =~ ^- && ! "$1" == "--" ]]; do case $1 in
 esac; shift; done
 
 for fn in \
-  ${HOME}/.mozilla/firefox/*.default \
-  ${HOME}/Library/Application\ Support/Firefox/Profiles/*.default \
-  ${HOME}/Library/Mozilla/Firefox/Profiles/*.default ; do
+  "$HOME"/.mozilla/firefox/*.default \
+  "$HOME"/Library/Application\ Support/Firefox/Profiles/*.default \
+  "$HOME"/Library/Mozilla/Firefox/Profiles/*.default ; do
   # shellcheck disable=SC2076
   if [[ "$fn" =~ "\*" ]]; then continue; fi
   mkdir -p "$fn/chrome"
@@ -29,7 +29,7 @@ for fn in \
 
   if [[ -e "$fullpath" ]] || [[ -h "$fullpath" ]]; then
     echo -ne " ! This file exists. Replace it? [Yn] "
-    read choice
+    read -r choice
     if [[ "$choice" != "n" ]]; then
       rm -f "$fullpath"
     else
