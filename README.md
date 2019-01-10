@@ -18,9 +18,9 @@ Firefox customization
 
 ## Installation
 
-- Automatic installation for Mac on Linux: type `bash install.sh` to install this to your Firefox profiles.
+- Automatic installation (Mac or Linux): <br> Type `./install.sh` to install this to your Firefox profiles.
 
-- Manual installation, copy [userChrome.css](./userChrome.css) to your Firefox profile folder's `chrome/` subfolder (you may need to create it first).
+- Manual installation: <br> Copy [userChrome.css](./userChrome.css) to your Firefox profile folder's `chrome/` subfolder (you may need to create it first).
 
 ## How do you use it?
 
