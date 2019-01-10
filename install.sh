@@ -8,3 +8,4 @@ for fn in \
   cp userChrome.css "$fn/chrome/userChrome.css"
   echo "Installed to '$fn/chrome/userChrome.css'."
 done
+

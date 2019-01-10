@@ -16,9 +16,21 @@ Firefox customization
 
 <br>
 
-Type `bash install.sh` to install this to your Firefox profile (Mac or Linux). For information on how this works, see [userChrome.css customization](http://kb.mozillazine.org/index.php?title=UserChrome.css&printable=yes) on MozillaZine.
+## Installation
 
-Further reading:
+- Automatic installation for Mac on Linux: type `bash install.sh` to install this to your Firefox profiles.
+
+- Manual installation, copy [userChrome.css](./userChrome.css) to your Firefox profile folder's `chrome/` subfolder (you may need to create it first).
+
+## How do you use it?
+
+- `Ctrl+L` (or `Cmd+L`) will bring focus to the navbar. This lets you interact with the navbar buttons, or type in a URL.
+
+- You can also right-click on a page to bring the popup menu to navigate back, forward, and so on.
+
+## Further reading
+
+For information on how this works, see [userChrome.css customization](http://kb.mozillazine.org/index.php?title=UserChrome.css&printable=yes) on MozillaZine.
 
 - [userChrome.css customization](http://kb.mozillazine.org/index.php?title=UserChrome.css&printable=yes) _(kb.mozillazine.org)_
 - [/r/firefoxcss](https://www.reddit.com/r/firefoxcss) _(reddit.com)_
