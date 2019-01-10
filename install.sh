@@ -14,7 +14,7 @@ for fn in \
   "$HOME"/Library/Application\ Support/Firefox/Profiles/*.default \
   "$HOME"/Library/Mozilla/Firefox/Profiles/*.default ; do
   # shellcheck disable=SC2076
-  if [[ "$fn" =~ "\*" ]]; then continue; fi
+  if [[ "$fn" =~ "*" ]]; then continue; fi
   mkdir -p "$fn/chrome"
 
   fullpath="$fn/chrome/userChrome.css"
