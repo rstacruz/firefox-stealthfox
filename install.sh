@@ -14,6 +14,7 @@ for fn in \
   "$HOME"/Library/Application\ Support/Firefox/Profiles/*.default \
   "$HOME"/Library/Mozilla/Firefox/Profiles/*.default ; do
   # shellcheck disable=SC2076
+  # shellcheck disable=SC2049
   if [[ "$fn" =~ "*" ]]; then continue; fi
   mkdir -p "$fn/chrome"
 
@@ -38,7 +39,7 @@ for fn in \
   fi
 
   if [[ -n "$SYMLINK" ]]; then
-    ln -nfs userChrome.css "$fullpath"
+    ln -nfs "$(pwd -LP)/userChrome.css" "$fullpath"
     echo "   Symlinked. Restart Firefox to apply!"
   else
     cp userChrome.css "$fullpath"
