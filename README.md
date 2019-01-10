@@ -22,6 +22,8 @@ Firefox customization
 
 - Manual installation: <br> Copy [userChrome.css](./userChrome.css) to your Firefox profile folder's `chrome/` subfolder (you may need to create it first).
 
+Alternatively, [userChrome.minimal.css](./userChrome.minimal.css) has less features, and is perfect for incorporating it into your own customizations. (Thanks @ronjouch in [#2](https://github.com/rstacruz/firefox-stealthfox/issues/2)!)
+
 ## How do you use it?
 
 - `Ctrl+L` (or `Cmd+L`) will bring focus to the navbar. This lets you interact with the navbar buttons, or type in a URL.

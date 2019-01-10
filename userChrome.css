@@ -16,6 +16,7 @@
 :root {
   --stealth-fade-in-speed: 100ms;
   --stealth-fade-out-speed: 250ms;
+  --bar-height: 40px;
 }
 
 /*
@@ -82,14 +83,6 @@
 #back-button > .toolbarbutton-icon {
   background: transparent !important;
   border: 0 !important;
-}
-
-/*
- * Experimental: Stealth tab bar!
- */
-
-:root {
-  --bar-height: 40px;
 }
 
 /* Taken from :root[uidensity="touch"] #titlebar, this forces

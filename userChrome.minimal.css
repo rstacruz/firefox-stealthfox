@@ -1,0 +1,62 @@
+@namespace url("http://www.mozilla.org/keymaster/gatekeeper/there.is.only.xul");
+
+:root {
+  --stealth-fade-in-speed: 100ms;
+  --stealth-fade-out-speed: 250ms;
+  --bar-height: 40px;
+}
+
+#main-window:not([customizing]) #navigator-toolbox {
+  overflow: hidden !important;
+}
+
+#main-window:not([customizing]) #TabsToolbar,
+#main-window:not([customizing]) #nav-bar {
+  transition: opacity var(--stealth-fade-out-speed) ease-out,
+    transform var(--stealth-fade-out-speed) ease-in !important;
+}
+
+#main-window:not([customizing]) #TabsToolbar {
+  height: calc(var(--bar-height)) !important;
+  transform: translate3d(0, 0, 0) !important;
+}
+
+#main-window:not([customizing]) #nav-bar {
+  height: calc(var(--bar-height)) !important;
+  transform: translate3d(0, calc(-1 * var(--bar-height)), 0) !important;
+}
+
+#main-window:not([customizing]) #nav-bar {
+  opacity: 0 !important;
+  margin-top: calc(-1 * var(--bar-height)) !important;
+  pointer-events: none !important;
+}
+
+/* Fade-in speed */
+#main-window:not([customizing]) #navigator-toolbox:focus-within #nav-bar,
+#main-window:not([customizing]) #navigator-toolbox:focus-within #TabsToolbar {
+  transition: opacity var(--stealth-fade-in-speed) ease-out,
+    transform var(--stealth-fade-in-speed) ease-in !important;
+}
+
+#main-window:not([customizing]) #navigator-toolbox:focus-within #nav-bar {
+  opacity: 1 !important;
+  z-index: 100 !important;
+  pointer-events: auto !important;
+  transform: translate3d(0, 0, 0) !important;
+}
+
+#main-window:not([customizing]) #navigator-toolbox:focus-within #TabsToolbar {
+  opacity: 0 !important;
+  pointer-events: none !important;
+  transform: translate3d(0, calc(0.5 * var(--bar-height)), 0) !important;
+}
+
+#main-window:not([customizing]) #tabbrowser-tabs,
+#main-window:not([customizing]) #nav-bar {
+  background: linear-gradient(
+    to bottom,
+    transparent,
+    rgba(0, 0, 0, 0.03)
+  ) !important;
+}
