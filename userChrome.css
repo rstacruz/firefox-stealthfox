@@ -1,0 +1,170 @@
+@namespace url("http://www.mozilla.org/keymaster/gatekeeper/there.is.only.xul");
+
+/*
+ * These themes go well with this:
+ *
+ * - https://addons.mozilla.org/en-US/firefox/addon/white-glossy-look/
+ * - https://addons.mozilla.org/en-US/firefox/addon/simple-def/
+ * - https://addons.mozilla.org/en-US/firefox/addon/androidflat/
+ * - https://addons.mozilla.org/en-US/firefox/addon/matte-black-v2/
+ */
+
+/* 
+ * Settings
+ */
+
+:root {
+  --stealth-fade-in-speed: 100ms;
+  --stealth-fade-out-speed: 250ms;
+}
+
+/*
+ * Remove vertical line to the left of the hamburger.
+ */
+
+#PanelUI-button {
+  margin-left: -3px !important;
+  border-left: 0 !important;
+}
+
+/*
+ * Tabs
+ */
+
+/* Hide the 2px highlight line above tabs. */
+.tab-line {
+  display: none !important;
+}
+
+/* Remove the 1px top border */
+.tab-background {
+  border-top: 0 !important;
+}
+
+/* 1px left-right borders of the selected tab */
+.tabbrowser-tab::before,
+.tabbrowser-tab::after,
+.tabbrowser-tab[visuallyselected]::before,
+.tabbrowser-tab[visuallyselected]::after {
+  opacity: 0.1 !important;
+}
+
+/* 1px bottom border */
+#TabsToolbar:not([collapsed="true"]) + #nav-bar {
+  box-shadow: 0 -1px 0 #6662 !important;
+}
+
+/* Hide close button, except for the active one. */
+.tab-close-button {
+  opacity: 0 !important;
+}
+
+.tabbrowser-tab:hover .tab-close-button {
+  opacity: 0.25 !important;
+}
+
+.tabbrowser-tab[visuallyselected] .tab-close-button {
+  opacity: 1 !important;
+}
+
+.tabs-newtab-button {
+  transform: scale(0.75) !important;
+}
+
+.tabs-newtab-button:not(:hover) {
+  opacity: 0.4;
+}
+
+/*
+ * Remvoe back button highlight
+ */
+
+#back-button > .toolbarbutton-icon {
+  background: transparent !important;
+  border: 0 !important;
+}
+
+/*
+ * Experimental: Stealth tab bar!
+ */
+
+:root {
+  --bar-height: 40px;
+}
+
+/* Taken from :root[uidensity="touch"] #titlebar, this forces
+ * tabs to have the 'touch'-size heights. */
+#titlebar#titlebar,
+#titlebar#tabbrowser-tabs {
+  --tab-min-height: calc(var(--bar-height) + 1px);
+}
+
+#main-window:not([customizing]) #navigator-toolbox {
+  overflow: hidden !important;
+}
+
+#main-window:not([customizing]) #TabsToolbar,
+#main-window:not([customizing]) #nav-bar {
+  transition: opacity var(--stealth-fade-out-speed) ease-out,
+    transform var(--stealth-fade-out-speed) ease-in !important;
+}
+
+#main-window:not([customizing]) #TabsToolbar {
+  height: calc(var(--bar-height)) !important;
+  transform: translate3d(0, 0, 0) !important;
+}
+
+#main-window:not([customizing]) #nav-bar {
+  height: calc(var(--bar-height)) !important;
+  transform: translate3d(0, calc(-1 * var(--bar-height)), 0) !important;
+}
+
+#main-window:not([customizing]) #nav-bar {
+  opacity: 0 !important;
+  margin-top: calc(-1 * var(--bar-height)) !important;
+  pointer-events: none !important;
+}
+
+/* Fade-in speed */
+#main-window:not([customizing]) #navigator-toolbox:focus-within #nav-bar,
+#main-window:not([customizing]) #navigator-toolbox:focus-within #TabsToolbar {
+  transition: opacity var(--stealth-fade-in-speed) ease-out,
+    transform var(--stealth-fade-in-speed) ease-in !important;
+}
+
+#main-window:not([customizing]) #navigator-toolbox:focus-within #nav-bar {
+  opacity: 1 !important;
+  z-index: 100 !important;
+  pointer-events: auto !important;
+  transform: translate3d(0, 0, 0) !important;
+}
+
+#main-window:not([customizing]) #navigator-toolbox:focus-within #TabsToolbar {
+  opacity: 0 !important;
+  pointer-events: none !important;
+  transform: translate3d(0, calc(0.5 * var(--bar-height)), 0) !important;
+}
+
+#main-window:not([customizing]) #tabbrowser-tabs,
+#main-window:not([customizing]) #nav-bar {
+  background: linear-gradient(
+    to bottom,
+    transparent,
+    rgba(0, 0, 0, 0.03)
+  ) !important;
+}
+
+/* Because it looks weird against a gradient background */
+#main-window:not([customizing]) .tab-background {
+  opacity: 0.5 !important;
+  height: var(--bar-height) !important;
+}
+
+.tab-label {
+  font-size: 0.85em !important;
+}
+
+#urlbar {
+  border: 0 !important;
+  box-shadow: 0 0 0 1px rgba(0, 0, 0, 0.1), 0 1px 2px rgba(0, 0, 0, 0.1) !important;
+}
