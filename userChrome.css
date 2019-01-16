@@ -136,7 +136,7 @@
 /* Fade-in speed */
 #main-window:not([customizing]) #navigator-toolbox:focus-within #nav-bar,
 #main-window:not([customizing]) #navigator-toolbox:focus-within #TabsToolbar {
-  transition: opacity var(--stealth-fade-in-speed) ease-out,
+  transition: opacity var(--stealth-fade-in-speed) ease-in,
     transform var(--stealth-fade-in-speed) ease-in !important;
 }
 
