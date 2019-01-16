@@ -86,7 +86,7 @@
 }
 
 /*
- * Remvoe back button highlight
+ * Remove back button highlight
  */
 
 #back-button > .toolbarbutton-icon {
@@ -119,9 +119,6 @@
 #main-window:not([customizing]) #nav-bar {
   height: calc(var(--bar-height)) !important;
   transform: translate3d(0, calc(-0.2 * var(--bar-height)), 0) !important;
-}
-
-#main-window:not([customizing]) #nav-bar {
   opacity: 0 !important;
   margin-top: calc(-1 * var(--bar-height)) !important;
   pointer-events: none !important;
@@ -147,16 +144,6 @@
   transform: translate3d(0, calc(0.5 * var(--bar-height)), 0) !important;
 }
 
-#main-window:not([customizing]) #tabbrowser-tabs,
-#main-window:not([customizing]) #nav-bar {
-  background: linear-gradient(
-    to bottom,
-    transparent,
-    rgba(0, 0, 0, 0.03)
-  ) !important;
-}
-
-/* Because it looks weird against a gradient background */
 #main-window:not([customizing]) .tab-background {
   opacity: var(--active-tab-opacity) !important;
   height: var(--bar-height) !important;
