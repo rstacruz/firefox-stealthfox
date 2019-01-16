@@ -27,9 +27,14 @@
   /* Opacity of the currently-selected tab */
   --active-tab-opacity: 0.8;
 
-  /* Line under the active tab. Not really needed,
-   * but it can make the toolbar feel more toolbar-like, lol. */
+  /* Line under the active tab. Not really needed, */
+  /* but it can make the toolbar feel more toolbar-like, lol. */
   --tab-underline-opacity: 0.4;
+
+  /* Extra padding in CSD mode. */
+  /* Only applies when 'title bar' is unchecked in 'customize'. */
+  --titlebar-padding-left: 80px;
+  --titlebar-padding-right: 80px;
 }
 
 /*
@@ -165,4 +170,10 @@
 #urlbar {
   border: 0 !important;
   box-shadow: 0 0 0 1px rgba(0, 0, 0, 0.1), 0 1px 2px rgba(0, 0, 0, 0.1) !important;
+}
+
+/* CSD mode */
+#main-window[tabsintitlebar="true"][chromemargin]:not([customizing]) #nav-bar {
+  padding-left: var(--titlebar-padding-left) !important;
+  padding-right: var(--titlebar-padding-right) !important;
 }
