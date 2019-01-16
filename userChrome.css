@@ -26,6 +26,10 @@
 
   /* Opacity of the currently-selected tab */
   --active-tab-opacity: 0.8;
+
+  /* Line under the active tab. Not really needed,
+   * but it can make the toolbar feel more toolbar-like, lol. */
+  --tab-underline-opacity: 0.4;
 }
 
 /*
@@ -42,13 +46,18 @@
  */
 
 /* Hide the 2px highlight line above tabs. */
-.tab-line {
+#main-window:not([customizing]) .tab-line {
   display: none !important;
 }
 
 /* Remove the 1px top border */
-.tab-background {
+#main-window:not([customizing]) .tab-background {
   border-top: 0 !important;
+}
+
+/* Tab underline */
+#main-window:not([customizing]) .tab-background {
+  box-shadow: inset 0 -1px rgba(0, 0, 0, var(--tab-underline-opacity));
 }
 
 /* 1px left-right borders of the selected tab */
@@ -118,9 +127,9 @@
 
 #main-window:not([customizing]) #nav-bar {
   height: calc(var(--bar-height)) !important;
-  transform: translate3d(0, calc(-0.2 * var(--bar-height)), 0) !important;
+  transform: translate3d(0, calc(0.2 * var(--bar-height)), 0) !important;
   opacity: 0 !important;
-  margin-top: calc(-1 * var(--bar-height)) !important;
+  margin-top: calc(-1 * var(--bar-height) - 1px) !important;
   pointer-events: none !important;
 }
 
@@ -141,7 +150,7 @@
 #main-window:not([customizing]) #navigator-toolbox:focus-within #TabsToolbar {
   opacity: 0 !important;
   pointer-events: none !important;
-  transform: translate3d(0, calc(0.5 * var(--bar-height)), 0) !important;
+  transform: translate3d(0, calc(-0.5 * var(--bar-height)), 0) !important;
 }
 
 #main-window:not([customizing]) .tab-background {
