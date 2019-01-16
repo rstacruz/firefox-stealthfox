@@ -14,10 +14,17 @@
  */
 
 :root {
+  /* Fade-in and fade-out speeds */
   --stealth-fade-in-speed: 50ms;
   --stealth-fade-out-speed: 250ms;
+
+  /* The height of the bar; avoid adjusting this. */
   --bar-height: 40px;
-  --inactive-tab-close-button-opacity: 0.4;
+
+  /* The tab close button for the active tabs */
+  --tab-close-button-opacity: 0.4;
+
+  /* Opacity of the currently-selected tab */
   --active-tab-opacity: 0.8;
 }
 
@@ -75,7 +82,7 @@
 }
 
 .tabs-newtab-button:not(:hover) {
-  opacity: var(--inactive-tab-close-button-opacity);
+  opacity: var(--tab-close-button-opacity);
 }
 
 /*
