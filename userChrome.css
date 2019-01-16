@@ -14,9 +14,11 @@
  */
 
 :root {
-  --stealth-fade-in-speed: 100ms;
+  --stealth-fade-in-speed: 50ms;
   --stealth-fade-out-speed: 250ms;
   --bar-height: 40px;
+  --inactive-tab-close-button-opacity: 0.4;
+  --active-tab-opacity: 0.8;
 }
 
 /*
@@ -73,7 +75,7 @@
 }
 
 .tabs-newtab-button:not(:hover) {
-  opacity: 0.4;
+  opacity: var(--inactive-tab-close-button-opacity);
 }
 
 /*
@@ -109,7 +111,7 @@
 
 #main-window:not([customizing]) #nav-bar {
   height: calc(var(--bar-height)) !important;
-  transform: translate3d(0, calc(-1 * var(--bar-height)), 0) !important;
+  transform: translate3d(0, calc(-0.2 * var(--bar-height)), 0) !important;
 }
 
 #main-window:not([customizing]) #nav-bar {
@@ -149,7 +151,7 @@
 
 /* Because it looks weird against a gradient background */
 #main-window:not([customizing]) .tab-background {
-  opacity: 0.5 !important;
+  opacity: var(--active-tab-opacity) !important;
   height: var(--bar-height) !important;
 }
 
