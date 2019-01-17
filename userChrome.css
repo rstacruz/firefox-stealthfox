@@ -138,13 +138,21 @@
   pointer-events: none !important;
 }
 
-/* Fade-in speed */
+/* Fade-in speed for focusing */
 #main-window:not([customizing]) #navigator-toolbox:focus-within #nav-bar,
 #main-window:not([customizing]) #navigator-toolbox:focus-within #TabsToolbar {
   transition: opacity var(--stealth-fade-in-speed) ease-in,
     transform var(--stealth-fade-in-speed) ease-in !important;
 }
 
+/* For pressing [alt] on Linux, don't do any animations. The menu shows up */
+/* abruptly, anyway. */
+#toolbar-menubar[autohide]:not([inactive]):not([customizing]) ~ #nav-bar,
+#toolbar-menubar[autohide]:not([inactive]):not([customizing]) ~ #TabsToolbar {
+  transition: none !important;
+}
+
+#toolbar-menubar[autohide]:not([inactive]):not([customizing]) ~ #nav-bar,
 #main-window:not([customizing]) #navigator-toolbox:focus-within #nav-bar {
   opacity: 1 !important;
   z-index: 100 !important;
@@ -152,6 +160,7 @@
   transform: translate3d(0, 0, 0) !important;
 }
 
+#toolbar-menubar[autohide]:not([inactive]):not([customizing]) ~ #TabsToolbar,
 #main-window:not([customizing]) #navigator-toolbox:focus-within #TabsToolbar {
   opacity: 0 !important;
   pointer-events: none !important;
